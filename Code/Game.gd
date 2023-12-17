@@ -16,19 +16,18 @@ func _ready():
 func _process(delta):
 	pass
 
-func create_soldier(pos:Vector2):
-	var rng = RandomNumberGenerator.new()
-	print('new soldier...', pos)
-	var new_soldier = spawn_around_position(soldier, pos, 60.0, rng.randf_range(0, 2*PI))
-	new_soldier.add_to_group('soldiers')
-	return new_soldier;
-	
 func spawn_around_position(object, posi, distance, angle):
-	var pos = posi + Vector2(cos(angle)*distance, sin(angle)*distance)
+	var pos = posi + distance * Vector2(cos(angle), sin(angle))
 	var new_obj = object.instantiate()
 	new_obj.position = pos
 	add_child(new_obj)
 	return new_obj
+	
+func create_soldier(pos:Vector2):
+	var rng = RandomNumberGenerator.new()
+	var new_soldier = spawn_around_position(soldier, pos, 60.0, rng.randf_range(0, 2*PI))
+	new_soldier.add_to_group('soldiers')
+	return new_soldier;
 	
 func populate_forest(spread:float, count:int):
 	var rng = RandomNumberGenerator.new()
