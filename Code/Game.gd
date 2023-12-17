@@ -1,10 +1,10 @@
 extends Node2D
 
 var player_object:Node2D
+var music:AudioStreamPlayer
 
 var soldier = preload("res://Scenes/soldier.tscn")
 var tree = preload("res://Scenes/tree.tscn")
-var music:AudioStreamPlayer
 
 func _ready():
 	populate_forest(500, 500)
