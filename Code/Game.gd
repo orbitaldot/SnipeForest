@@ -34,5 +34,6 @@ func populate_forest(spread:float, count:int):
 		var ang = rng.randf_range(0, 2*PI)
 		var l = rng.randf_range(32.0, spread)
 		var new_tree = spawn_around_position(tree, Vector2(0.0,0.0), l, ang)
+		new_tree.add_to_group('trees')
 		new_tree.z_index = new_tree.position.y
 		
