@@ -16,9 +16,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func get_player():
-	return player_object
-
 func create_soldier(pos:Vector2):
 	var rng = RandomNumberGenerator.new()
 	print('new soldier...', pos)
