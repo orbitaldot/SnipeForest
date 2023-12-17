@@ -13,18 +13,19 @@ func _ready():
 
 func _process(delta):
 	var player:Node2D = get_tree().get_root().get_child(0).player_object
+	
 	self.facing = 'left' if player.position.x < position.x else 'right'
 	self.sprite.play(self.facing)
+	
 	self.rotation = sin(life * 10) * 0.25
 	
 	var d = (player.position - position).normalized() * 0.1
+	move_and_collide(d)
 	
 	if targeted && Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		get_tree().get_root().get_child(0).player_object.boomHeadshot.play()
 		hide()
 		queue_free()
-	
-	move_and_collide(d)
 	
 	z_index = position.y
 	self.life += delta;
