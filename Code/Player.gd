@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 var camera:Camera2D
-var sprite:AnimatedSprite2D
 var position_old:Vector2
+var sprite:AnimatedSprite2D
+var boomHeadshot:AudioStreamPlayer
 
 var time:float = 0
 var moving:bool = false
@@ -13,20 +14,16 @@ var move_speed:float = 0.3
 var mouse_down:bool = false
 var mouse_pressed:bool = false
 
-var boomHeadshot:AudioStreamPlayer
-
 const cam_default_zoom:Vector2 = Vector2(4.0, 4.0)
 
 func _ready():
 	self.camera = self.get_node('Camera2D')
+	self.boomHeadshot = self.get_node('AudioStreamPlayer')
 	self.sprite = self.get_node('AnimatedSprite2D')
 	self.sprite.play(self.facing)
-	get_tree().get_root().size = Vector2i(640, 480)
 	
 	get_tree().get_root().get_child(0).player_object = self
 
-	self.boomHeadshot = get_node('AudioStreamPlayer')
-	
 	pass
 
 func _process(delta):

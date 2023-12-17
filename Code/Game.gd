@@ -10,6 +10,7 @@ func _ready():
 	populate_forest(500, 500)
 	self.music = get_node('Music')
 	self.music.play()
+	get_tree().get_root().size = Vector2i(640, 480)
 	pass
 
 func _process(delta):
