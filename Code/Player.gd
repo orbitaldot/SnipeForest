@@ -17,18 +17,18 @@ var boomHeadshot:AudioStreamPlayer
 
 const cam_default_zoom:Vector2 = Vector2(4.0, 4.0)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	self.camera = self.get_node('Camera2D')
 	self.sprite = self.get_node('AnimatedSprite2D')
 	self.sprite.play(self.facing)
 	get_tree().get_root().size = Vector2i(640, 480)
+	
+	get_tree().get_root().get_child(0).player_object = self
 
 	self.boomHeadshot = get_node('AudioStreamPlayer')
 	
-	pass # Replace with function body.
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position_old = (position)
 	
@@ -52,8 +52,6 @@ func _process(delta):
 			nearest_soldier_distance = dist
 		var soldier:CharacterBody2D = soldiers[i]
 		var coll:CollisionShape2D = soldier.get_node('CollisionShape2D')
-			
-	print('targeting: ', targeted)
 	
 	if nearest_soldier_distance < INF:
 		var mus:AudioStreamPlayer = get_tree().get_root().get_child(0).music

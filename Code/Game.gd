@@ -6,14 +6,12 @@ var soldier = preload("res://Scenes/soldier.tscn")
 var tree = preload("res://Scenes/tree.tscn")
 var music:AudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	populate_forest(500, 500)
-	self.music = get_tree().get_root().get_child(0).get_node('Music')
+	self.music = get_node('Music')
 	self.music.play()
-	pass # Replace with function body.
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 

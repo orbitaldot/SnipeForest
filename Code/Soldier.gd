@@ -6,14 +6,11 @@ var life:float = 0.0;
 var targeted:bool = false;
 var shoot_area:Area2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	self.sprite = get_node('AnimatedSprite2D');
 	self.shoot_area = get_node('ShootArea')
-	pass # Replace with function body.
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var player:Node2D = get_tree().get_root().get_child(0).player_object
 	self.facing = 'left' if player.position.x < position.x else 'right'

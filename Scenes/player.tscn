@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://edavsc28doc5"]
+[gd_scene load_steps=9 format=3 uid="uid://edavsc28doc5"]
 
 [ext_resource type="Script" path="res://Code/Player.gd" id="1_nmf3k"]
 [ext_resource type="Texture2D" uid="uid://c2nrfmeha8uj2" path="res://Sprites/sniper/sniper2.png" id="2_uhwq5"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://8as0plq38wg2" path="res://Sprites/sniper/sniper1.png" id="4_cmruc"]
 [ext_resource type="Texture2D" uid="uid://bqsp0sgi26uos" path="res://Sprites/sniper/sniper3.png" id="5_tbnri"]
 [ext_resource type="AudioStream" uid="uid://cjsapt84gi6gg" path="res://Audio/boom.mp3" id="6_4x5ui"]
-[ext_resource type="Script" path="res://Code/Overlay.gd" id="7_qckv4"]
-[ext_resource type="Texture2D" uid="uid://b3su524gejdj7" path="res://Sprites/overlay.png" id="7_t7prf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_36ehe"]
 animations = [{
@@ -76,12 +74,3 @@ shape = SubResource("RectangleShape2D_0tur6")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4x5ui")
 volume_db = 1.874
-
-[node name="Overlay" type="Node2D" parent="."]
-script = ExtResource("7_qckv4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Overlay"]
-texture_filter = 1
-position = Vector2(-23.5, -24.25)
-scale = Vector2(0.257813, 0.195313)
-texture = ExtResource("7_t7prf")
