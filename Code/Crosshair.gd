@@ -1,6 +1,7 @@
 extends Node2D
 
 var sprite:Sprite2D
+
 var rotate_speed:float = 0.005;
 
 func _ready():
