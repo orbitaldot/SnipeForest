@@ -21,13 +21,13 @@ func spawn_around_position(object, pos, distance, angle):
 	new_obj.position = pos + distance * Vector2(cos(angle), sin(angle))
 	add_child(new_obj)
 	return new_obj
-	
+
 func create_soldier(pos:Vector2):
 	var rng = RandomNumberGenerator.new()
 	var new_soldier = spawn_around_position(soldier, pos, 60.0, rng.randf_range(0, 2*PI))
 	new_soldier.add_to_group('soldiers')
 	return new_soldier;
-	
+
 func populate_forest(spread:float, count:int):
 	var rng = RandomNumberGenerator.new()
 	for i in count:
