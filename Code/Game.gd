@@ -16,10 +16,9 @@ func _ready():
 func _process(delta):
 	pass
 
-func spawn_around_position(object, posi, distance, angle):
-	var pos = posi + distance * Vector2(cos(angle), sin(angle))
+func spawn_around_position(object, pos, distance, angle):
 	var new_obj = object.instantiate()
-	new_obj.position = pos
+	new_obj.position = pos + distance * Vector2(cos(angle), sin(angle))
 	add_child(new_obj)
 	return new_obj
 	
