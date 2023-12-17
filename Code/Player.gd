@@ -1,17 +1,17 @@
 extends CharacterBody2D
 
 var camera:Camera2D
-var time:float = 0
 var sprite:AnimatedSprite2D
-var moving:bool = false
 var position_old:Vector2
+
+var time:float = 0
+var moving:bool = false
 var facing:String = 'right'
 var mouse_x:float = 0.0
 var cam_zoom:float = 4.0
 var move_speed:float = 0.3
 var mouse_down:bool = false
 var mouse_pressed:bool = false
-var targeted:CharacterBody2D
 
 var boomHeadshot:AudioStreamPlayer
 
@@ -42,8 +42,6 @@ func _process(delta):
 	
 	crosshair.position = position + mouse_pos
 	crosshair.z_index = self.z_index + 900;
-	
-	targeted = null
 	
 	for i in len(soldiers):
 		var dist = position.distance_to(soldiers[i].position)

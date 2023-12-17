@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-var facing:String = 'right';
 var sprite:AnimatedSprite2D;
-var life:float = 0.0;
-var targeted:bool = false;
 var shoot_area:Area2D
+
+var life:float = 0.0;
+var facing:String = 'right';
+var targeted:bool = false;
 
 func _ready():
 	self.sprite = get_node('AnimatedSprite2D');
