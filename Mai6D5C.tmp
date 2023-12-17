@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhakpa4ccrxy3"]
+
+[ext_resource type="Script" path="res://Code/Game.gd" id="1_j0ypc"]
+[ext_resource type="PackedScene" uid="uid://baa1qgaynvno5" path="res://Scenes/soldier.tscn" id="2_u721s"]
+[ext_resource type="PackedScene" uid="uid://edavsc28doc5" path="res://Scenes/player.tscn" id="3_0ihpk"]
+[ext_resource type="PackedScene" uid="uid://bacg4ouqmlpw1" path="res://Scenes/tree.tscn" id="4_y1c6f"]
+[ext_resource type="AudioStream" uid="uid://bb7gse73u56h5" path="res://Audio/kick.mp3" id="5_r666h"]
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+position = Vector2(55, 19)
+script = ExtResource("1_j0ypc")
+
+[node name="Soldier" parent="." instance=ExtResource("2_u721s")]
+
+[node name="Player" parent="." instance=ExtResource("3_0ihpk")]
+
+[node name="Tree" parent="." instance=ExtResource("4_y1c6f")]
+position = Vector2(-55, -19)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r666h")

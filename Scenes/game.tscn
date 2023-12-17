@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://dio6nspwr3f52"]
+
+[ext_resource type="Script" path="res://Code/Game.gd" id="1_ggs2x"]
+[ext_resource type="PackedScene" uid="uid://baa1qgaynvno5" path="res://Scenes/soldier.tscn" id="2_f8v30"]
+[ext_resource type="Script" path="res://Code/Player.gd" id="3_v51sq"]
+[ext_resource type="Texture2D" uid="uid://c2nrfmeha8uj2" path="res://Sprites/sniper/sniper2.png" id="4_xaust"]
+[ext_resource type="Texture2D" uid="uid://dbpuynnwho3qc" path="res://Sprites/sniper/sniper0.png" id="5_f45aq"]
+[ext_resource type="Texture2D" uid="uid://8as0plq38wg2" path="res://Sprites/sniper/sniper1.png" id="6_3u3i5"]
+[ext_resource type="Texture2D" uid="uid://bqsp0sgi26uos" path="res://Sprites/sniper/sniper3.png" id="7_d0agu"]
+[ext_resource type="AudioStream" uid="uid://bb7gse73u56h5" path="res://Audio/kick.mp3" id="8_ultlv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36ehe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xaust")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f45aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3u3i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d0agu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_f45aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xaust")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_d0agu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3u3i5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+texture_filter = 1
+position = Vector2(55, 19)
+script = ExtResource("1_ggs2x")
+
+[node name="Soldier" parent="." instance=ExtResource("2_f8v30")]
+rotation = -0.100218
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(20, 14.5)
+script = ExtResource("3_v51sq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+position = Vector2(0, -15)
+scale = Vector2(0.0876799, 0.0876799)
+sprite_frames = SubResource("SpriteFrames_36ehe")
+animation = &"left"
+speed_scale = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -15)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ultlv")
+volume_db = -80.0
